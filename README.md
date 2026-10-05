@@ -1,6 +1,6 @@
 # Leipzig LaTeX presentation template
 
-A clean Beamer starter based on the supplied QubitEdu presentation. It keeps the Leipzig logo, red/aquamarine title and section artwork, white content slides, blue emphasis, typography, footer, and callouts. It contains eight slides: a title, a section divider, five example layouts, and a closing slide.
+A clean Beamer starter based on the Leipzig Beamer Template by Badal Mondal (https://de.overleaf.com/latex/templates/leipzig-beamer-template/vxzvtsfytgcj). It keeps the Leipzig logo, red/aquamarine title and section artwork, white content slides, blue emphasis, typography, footer, and callouts. It contains eight slides: a title, a section divider, five example layouts, and a closing slide.
 
 ## Quick start
 
