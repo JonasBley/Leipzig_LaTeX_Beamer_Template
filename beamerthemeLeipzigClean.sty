@@ -1,0 +1,164 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeLeipzigClean}[2026/10/05 Clean Leipzig presentation theme]
+
+% Adapted from the supplied LeipzigChemie and LeipzigModern styles.
+% Requires XeLaTeX or LuaLaTeX. Standard TeX fonts provide a portable fallback.
+\RequirePackage{iftex}
+\ifPDFTeX
+  \PackageError{beamerthemeLeipzigClean}{Use XeLaTeX or LuaLaTeX}
+    {Select XeLaTeX or LuaLaTeX as your compiler.}
+\else
+  \RequirePackage{fontspec}
+  \IfFontExistsTF{Arial}{\setsansfont{Arial}}{\setsansfont{TeX Gyre Heros}}
+\fi
+\RequirePackage{amsmath,amssymb,graphicx,booktabs,array,tabularx}
+\RequirePackage{tikz,tcolorbox,etoolbox}
+
+% Brand palette from the original presentation.
+\definecolor{granat}{RGB}{176,47,44}
+\definecolor{karneol}{RGB}{214,66,66}
+\definecolor{aquamarin}{RGB}{138,194,209}
+\definecolor{basalt}{RGB}{38,42,49}
+% Darkened aquamarine for readable emphasis, as in LeipzigModern.
+\colorlet{LeipzigBlue}{aquamarin!45!basalt}
+\colorlet{Ink}{basalt}
+\colorlet{Accent}{LeipzigBlue}
+\colorlet{Soft}{aquamarin!15!white}
+\colorlet{Muted}{basalt!75!white}
+
+% The only brand settings normally edited for a different institution.
+\newcommand{\presentationlogo}{images/logo_leipzig.pdf}
+\newcommand{\presentationfooter}{UNIVERSIT\"AT LEIPZIG}
+\newcommand{\titleHeaderLayout}{\includegraphics[width=4.2cm]{\presentationlogo}}
+
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{structure}{fg=LeipzigBlue}
+\setbeamercolor{title}{fg=Ink}
+\setbeamercolor{frametitle}{fg=Ink}
+\setbeamercolor{alerted text}{fg=karneol}
+\setbeamercolor{block title}{fg=LeipzigBlue,bg=white}
+\setbeamercolor{block body}{fg=Ink,bg=white}
+\setbeamercolor{itemize item}{fg=LeipzigBlue}
+\setbeamercolor{itemize subitem}{fg=LeipzigBlue}
+\setbeamercolor{enumerate item}{fg=LeipzigBlue}
+\setbeamercolor{section in toc}{fg=LeipzigBlue}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
+\setbeamersize{text margin left=9mm,text margin right=9mm,
+  sidebar width left=1mm,sidebar width right=1mm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{background}{}
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{frametitle}{\vspace{3mm}\insertframetitle\par\vspace{2mm}}
+\setbeamertemplate{itemize item}{\small\textbullet}
+\setbeamertemplate{itemize subitem}{\tiny\textbullet}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{bibliography item}[text]
+
+% Optional per-slide footer source; automatically cleared at each new frame.
+\newcommand{\insertSlideSource}{}
+\newcommand{\slidesource}[1]{\gdef\insertSlideSource{#1}}
+\AtBeginEnvironment{frame}{\gdef\insertSlideSource{}}
+\setbeamertemplate{footline}{%
+  \hspace*{9mm}\begin{minipage}{\dimexpr\paperwidth-18mm\relax}
+    \color{karneol}\hrule height .35pt\vspace{1.4mm}
+    {\tiny\color{Muted}\presentationfooter\hfill\insertSlideSource\hfill\insertframenumber}
+    \vspace{2mm}
+  \end{minipage}}
+
+\setbeamertemplate{title page}{%
+  \vspace{1mm}\titleHeaderLayout\par\vspace{6mm}
+  \begin{minipage}{.79\textwidth}
+    {\usebeamerfont{title}\inserttitle\par}\vspace{4mm}
+    {\usebeamerfont{subtitle}\color{LeipzigBlue}\insertsubtitle\par}\vspace{5mm}
+    {\insertauthor\par}\vspace{2mm}
+    {\small\insertinstitute\par}
+    {\small\insertdate\par}\vspace{3mm}\inserttitlegraphic
+  \end{minipage}}
+
+% Helpers retained from the source presentation.
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\newcommand{\source}[1]{\par\vspace{2mm}{\scriptsize\color{Muted}#1\par}}
+\newcommand{\keyidea}[1]{\par\vspace{2mm}{\centering\normalsize\bfseries\color{LeipzigBlue}#1\par}}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newtcolorbox{mynote}[1][Note]{colback=white,colbacktitle=aquamarin,
+  coltitle=basalt,colframe=aquamarin,boxrule=.6pt,arc=1mm,
+  fonttitle=\bfseries,title={\strut#1},left=2mm,right=2mm,top=1.5mm,bottom=1.5mm}
+\newtcolorbox{myalert}[1][Important]{colback=white,colbacktitle=karneol,
+  coltitle=white,colframe=karneol,boxrule=.6pt,arc=1mm,
+  fonttitle=\bfseries,title={\strut#1},left=2mm,right=2mm,top=1.5mm,bottom=1.5mm}
+
+% Original LeipzigChemie title/section artwork follows.
+\newcommand{\specialpagelayout}
+{\setbeamertemplate{background}{
+    \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
+        \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+        \draw[granat, fill=granat,thin] (0.65,0) -- (1,0) --  (1,1) -- cycle;
+        \draw[aquamarin, fill=aquamarin, thin] (0.7,1) -- (1,1) --  (0.85,0.574) -- cycle;
+        \draw[karneol,fill=karneol, thin] (0.85,0.574) -- (1,1) --  (1,0.1475) -- cycle;
+        \draw[karneol, very thin] (0.068,0.88) -- (0.7,0.88);
+        \draw[gray, very thin] (0.068,0.885) -- (0.7,0.885);
+        \path[gray, thin]  (0.07,0.89) edge node[right, yshift=3pt] {\textcolor{black}{\tiny \textsf{UNIVERSIT\"AT}}} (0.07,.98);
+        \path[gray]  (0.07,0.89) edge node[right, yshift=-3pt] {\textcolor{black}{\tiny \textsf{LEIPZIG}}} (0.07,.98);
+        \end{scope}
+    \end{tikzpicture}
+}}
+
+%%%%%%%%%%%%%%%%%%%% Section page layout for 16/9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SpecialPageLayout}
+{\setbeamertemplate{background}{
+    \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
+        \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+        \draw[granat,fill=granat, thin] (0.6375,0) -- (0.9375,0) --  (0.788,0.575) -- cycle;
+        \draw[aquamarin, fill=aquamarin, thin] (0.675,1) -- (0.9,1) --  (0.788,0.575) -- cycle;
+        \draw[karneol, fill=karneol, thin] (0.9375,0) -- (1,0) --  (1,0.77) -- (0.9375,1) -- (0.9,1) -- (0.788,0.575) -- cycle;
+        \draw[granat,fill=granat, thin] (0.9375,1) -- (1,1) --  (1,0.77) -- cycle;
+        \draw[karneol, very thin] (0.068,0.88) -- (0.675,0.88);
+        \draw[gray, very thin] (0.068,0.885) -- (0.675,0.885);
+        \path[gray, thin]  (0.07,0.89) edge node[right, yshift=3pt] {\textcolor{black}{\tiny \textsf{UNIVERSIT\"AT}}} (0.07,.98);
+        \path[gray]  (0.07,0.89) edge node[right, yshift=-3pt] {\textcolor{black}{\tiny \textsf{LEIPZIG}}} (0.07,.98);
+        \end{scope}
+    \end{tikzpicture}
+}}
+
+
+\newcommand{\maketitlepage}{{
+\setbeamertemplate{background}{    
+    \begin{tikzpicture}[remember picture, overlay,shift=(current page.north west)]
+        \begin{scope}[x={(current page.north east)},y={(current page.south west)}]
+        \draw[aquamarin,fill=aquamarin, thin] (0.65,1) -- (1,1) -- (1,0.65) -- cycle;
+        \draw[karneol, fill=karneol, thin] (0.895,1) -- (1,1) -- (1,0.65) -- (0.925,0.725) -- cycle;
+        \draw[granat, fill=granat,thin] (1,0.65) -- (0.925,0.725) -- (1,0) -- cycle;
+        \end{scope}
+    \end{tikzpicture}}
+\setbeamertemplate{headline}{}
+\begin{frame}[plain]
+  \titlepage %
+\end{frame}
+}}
+
+
+\providecommand{\BeamerAspectRatio}{169}
+\newcommand{\definepagelayoutwithAR}{%
+  \ifnum\BeamerAspectRatio=169\relax\SpecialPageLayout\else\specialpagelayout\fi}
+\newcommand{\maketableofcontents}{%
+  \begin{frame}{Overview}\tableofcontents[hideallsubsections]\end{frame}}
+\newcommand{\makesectionpopup}{\AtBeginSection[]{%
+  {\definepagelayoutwithAR\setbeamertemplate{footline}{}
+    \begin{frame}[plain,noframenumbering]
+      \begin{minipage}{.58\textwidth}\raggedright\LARGE\bfseries\insertsectionhead\end{minipage}
+    \end{frame}}}}
+
+% Compile notes.tex to show interleaved speaker notes.
+\ifdefined\ShowSpeakerNotes
+  \hypersetup{draft}
+  \setbeameroption{show notes}
+\else
+  \setbeameroption{hide notes}
+\fi
