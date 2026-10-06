@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{beamerthemeLeipzigClean}[2026/10/05 Clean Leipzig presentation theme]
+\ProvidesPackage{beamerthemeLeipzigClean}[2026/10/06 Clean Leipzig presentation theme]
 
 % Adapted from the supplied LeipzigChemie and LeipzigModern styles.
 % Requires XeLaTeX or LuaLaTeX. Standard TeX fonts provide a portable fallback.
@@ -40,6 +40,7 @@
 \setbeamercolor{block body}{fg=Ink,bg=white}
 \setbeamercolor{itemize item}{fg=LeipzigBlue}
 \setbeamercolor{itemize subitem}{fg=LeipzigBlue}
+\setbeamercolor{itemize subsubitem}{fg=LeipzigBlue}
 \setbeamercolor{enumerate item}{fg=LeipzigBlue}
 \setbeamercolor{section in toc}{fg=LeipzigBlue}
 \setbeamerfont{title}{size=\LARGE,series=\bfseries}
@@ -53,8 +54,14 @@
 \setbeamertemplate{background}{}
 \setbeamertemplate{blocks}[default]
 \setbeamertemplate{frametitle}{\vspace{3mm}\insertframetitle\par\vspace{2mm}}
-\setbeamertemplate{itemize item}{\small\textbullet}
-\setbeamertemplate{itemize subitem}{\tiny\textbullet}
+% Same round text bullet and blue as in the handout, on all nesting levels.
+% No fixed small/tiny size: the marker follows the current label font.
+\setbeamerfont{itemize item}{series=\mdseries}
+\setbeamerfont{itemize subitem}{series=\mdseries}
+\setbeamerfont{itemize subsubitem}{series=\mdseries}
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{\textbullet}
+\setbeamertemplate{itemize subsubitem}{\textbullet}
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{bibliography item}[text]
 
