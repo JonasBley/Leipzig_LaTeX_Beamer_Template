@@ -1,0 +1,82 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global/global}
+  \entry{10.3389/fpsyg.2019.03087}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=WB}{%
+         family={Wisniewski},
+         familyi={W\bibinitperiod},
+         given={Benedikt},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=ZK}{%
+         family={Zierer},
+         familyi={Z\bibinitperiod},
+         given={Klaus},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Hattie},
+         familyi={H\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WB+1}
+    \strng{fullhash}{WBZKHJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{abstract}{%
+    A meta-analysis (435 studies, k = 994, N > 61,000) of empirical research on
+  the effects of feedback on student learning was conducted with the purpose of
+  replicating and expanding the Visible Learning research (Hattie & Timperley,
+  2007; Hattie, 2009; Hattie & Zierer, 2019) from meta-synthesis. Overall
+  results based on a random-effects model indicate a medium effect (d = 0.48)
+  of feedback on student learning, but the significant heterogeneity in the
+  data shows that feedback cannot be understood as a single consistent form of
+  treatment. A moderator analysis revealed that the impact is substantially
+  influenced by the information content conveyed. Furthermore, feedback has
+  higher impact on cognitive and motor skills outcomes than on motivational and
+  behavioral outcomes. We discuss these findings in the light of the
+  assumptions made in The power of feedback (Hattie & Timperley, 2007). In
+  general, the results suggest that feedback has rightly become a focus of
+  teaching research and practice. However, they also point towards the
+  necessity of interpreting different forms of feedback as independent
+  measures.%
+    }
+    \verb{doi}
+    \verb 10.3389/fpsyg.2019.03087
+    \endverb
+    \field{issn}{1664-1078}
+    \field{title}{The Power of Feedback Revisited: A Meta-Analysis of
+  Educational Feedback Research}
+    \verb{url}
+    \verb https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsy
+    \verb g.2019.03087
+    \endverb
+    \field{volume}{Volume 10 - 2019}
+    \field{journaltitle}{Frontiers in Psychology}
+    \field{year}{2020}
+  \endentry
+\enddatalist
+\endinput

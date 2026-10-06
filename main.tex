@@ -4,6 +4,8 @@
 \documentclass[aspectratio=\BeamerAspectRatio]{beamer}
 \usetheme{LeipzigClean}
 \input{TitlePageInfo.tex}
+\usepackage[backend=bibtex,style=authoryear,maxcitenames=2,maxbibnames=9,natbib=true,doi=true,url=false,isbn=false]{biblatex}
+\addbibresource{references.bib}
 
 \begin{document}
 \maketitlepage
@@ -101,6 +103,12 @@
   \vspace{7mm}
   {\small\color{Muted}[Your name]\quad [Your contact or project link]\par}
   \vfill
+  Example citation \citep{10.3389/fpsyg.2019.03087}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+\renewcommand*{\bibfont}{\scriptsize}
+\printbibliography
 \end{frame}
 
 % Optional appendix. Disable divider pages for backup material.
