@@ -95,6 +95,14 @@
 \newcommand{\keyidea}[1]{\par\vspace{2mm}{\centering\normalsize\bfseries\color{LeipzigBlue}#1\par}}
 \newcommand{\keyalert}[1]{\par\vspace{2mm}{\centering\normalsize\bfseries\color{karneol}#1\par}}
 \newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\redrow}[2]{%
+  \par\noindent
+  \begin{minipage}[t]{2.7cm}\vspace{0pt}%
+    \raggedright\color{granat}\bfseries\strut #1\par
+  \end{minipage}\hspace{5mm}%
+  \begin{minipage}[t]{\dimexpr\textwidth-3.2cm\relax}\vspace{0pt}%
+    \raggedright\strut #2\par
+  \end{minipage}\par\vspace{2.5mm}}
 \newtcolorbox{mynote}[1][Note]{colback=white,colbacktitle=aquamarin,
   coltitle=basalt,colframe=aquamarin,boxrule=.6pt,arc=1mm,
   fonttitle=\bfseries,title={\strut#1},left=2mm,right=2mm,top=1.5mm,bottom=1.5mm}
